@@ -2,17 +2,18 @@ body {
   text-align: center;
 }
 
-img#cat {
+img.cat-pic {
   outline: 3px solid white;
   outline-offset: -10px;
   box-shadow: 13px 13px 13px rgba(0,0,0,0.25);
+  width: 300px;
 }
 
-img#cat:active {
+img.cat-pic:active {
   box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 }
 
-img#cat:hover {
+img.cat-pic:hover {
   transform: rotate(-1deg);
   /*filter: brightness(1.125);*/
   /*box-shadow: 15px 15px 15px rgba(0,0,0,0.25);*/
