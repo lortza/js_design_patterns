@@ -9,6 +9,7 @@ header {
 .sidebar .card p {
   margin-bottom: 0;
 }
+
 .sidebar .card:hover {
   background-color: #e9ecef;
 }
@@ -26,7 +27,4 @@ img.cat-pic:active {
 
 img.cat-pic:hover {
   transform: rotate(-1deg);
-  /*filter: brightness(1.125);*/
-  /*box-shadow: 15px 15px 15px rgba(0,0,0,0.25);*/
-
 }

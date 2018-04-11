@@ -7,7 +7,6 @@ class UI {
 
   buildSidebarList(cats){
     let output = ''
-
     cats.forEach(function(cat) {
       let card = `
       <div class="card card-body mb-2">
