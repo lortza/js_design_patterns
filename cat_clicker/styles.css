@@ -2,6 +2,17 @@ body {
   text-align: center;
 }
 
+header {
+  margin-bottom: 2rem;
+}
+
+.sidebar .card p {
+  margin-bottom: 0;
+}
+.sidebar .card:hover {
+  background-color: #e9ecef;
+}
+
 img.cat-pic {
   outline: 3px solid white;
   outline-offset: -10px;
