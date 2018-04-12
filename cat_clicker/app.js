@@ -12,7 +12,7 @@ ui.catContainer.addEventListener('click', updateClickCount)
 
 // Initialize the view
 function init(){
-  ui.buildSidebarList(cats)
+  ui.buildSidebarList(cats.data)
 }
 
 // Show the cat profile
@@ -23,16 +23,17 @@ function showCat(e){
   } else if(e.target.nodeName === 'P'){
     catId = e.target.parentElement.getAttribute('id')
   }
-  ui.buildCat(catId)
+  ui.buildCatProfile(catId)
 }
 
 // Update the click count
 function updateClickCount(e){
   if(e.target.classList.contains('cat-pic')){
     let clickContainer = e.target.parentElement.querySelector('span')
-    let clickCount = parseInt(clickContainer.textContent)
-    clickCount += 1
-    clickContainer.textContent = clickCount
-
+    let id = clickContainer.getAttribute('id')
+    let catId = parseInt(id.split('-').pop())
+    let cat = cats.findCat(catId);
+    cats.addClick(cat)
+    clickContainer.textContent = cat.clicks
   }
 }

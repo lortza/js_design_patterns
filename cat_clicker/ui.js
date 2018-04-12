@@ -18,9 +18,9 @@ class UI {
     this.catList.innerHTML = output
   }
 
-  buildCat(catId){
+  buildCatProfile(catId){
     let id = parseInt(catId.split('-').pop())
-    let cat = cats.find(function(c){ return c.id === id });
+    let cat = cats.findCat(id)
 
     this.catContainer.innerHTML = `
       <h3>${cat.name}</h3>
