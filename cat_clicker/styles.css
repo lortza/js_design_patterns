@@ -6,6 +6,11 @@ header {
   margin-bottom: 2rem;
 }
 
+.sidebar .card-body {
+  padding: 5px 15px;
+  display: block;
+}
+
 .sidebar .card p {
   margin-bottom: 0;
 }
