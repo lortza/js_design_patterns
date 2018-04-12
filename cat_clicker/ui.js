@@ -9,8 +9,8 @@ class UI {
     let output = ''
     cats.forEach(function(cat) {
       let card = `
-      <div class="card card-body mb-2">
-        <p id="cat-${cat.id}">${cat.name}</p>
+      <div id="cat-${cat.id}" class="cat card card-body mb-2">
+        <p>${cat.name}</p>
       </div>
       `
       output += card

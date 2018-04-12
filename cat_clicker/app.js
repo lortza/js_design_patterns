@@ -1,7 +1,7 @@
 const ui = new UI()
 
 // Load sidebar content on DOM load
-document.addEventListener('DOMContentLoaded', ui.buildSidebarList(cats))
+document.addEventListener('DOMContentLoaded', init)
 
 // Listen for sidebar link click
 ui.catList.addEventListener('click', showCat)
@@ -10,16 +10,20 @@ ui.catList.addEventListener('click', showCat)
 ui.catContainer.addEventListener('click', updateClickCount)
 
 
+// Initialize the view
+function init(){
+  ui.buildSidebarList(cats)
+}
+
 // Show the cat profile
 function showCat(e){
-  let catElement;
-  if(e.target.nodeName === 'P'){
+  let catId;
+  if(e.target.classList.contains('cat')){
     catId = e.target.getAttribute('id')
-  } else if(e.target.classList.contains('card')){
-    catId = e.target.querySelector('p').getAttribute('id')
+  } else if(e.target.nodeName === 'P'){
+    catId = e.target.parentElement.getAttribute('id')
   }
   ui.buildCat(catId)
-  e.preventDefault()
 }
 
 // Update the click count
@@ -29,6 +33,6 @@ function updateClickCount(e){
     let clickCount = parseInt(clickContainer.textContent)
     clickCount += 1
     clickContainer.textContent = clickCount
+
   }
-  e.preventDefault()
 }
