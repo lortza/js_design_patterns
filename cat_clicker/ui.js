@@ -20,7 +20,7 @@ class UI {
 
   buildCat(catId){
     let id = parseInt(catId.split('-').pop())
-    let cat = cats.filter(function(c){ return c.id === id })[0];
+    let cat = cats.find(function(c){ return c.id === id });
 
     this.catContainer.innerHTML = `
       <h3>${cat.name}</h3>

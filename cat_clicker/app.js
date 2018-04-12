@@ -32,5 +32,3 @@ function updateClickCount(e){
   }
   e.preventDefault()
 }
-
-
