@@ -1,4 +1,4 @@
-const cats = {
+const model = {
   data: [
     {
       id: 1,
@@ -26,9 +26,13 @@ const cats = {
     }
   ],
 
-  findCat: function(id){
+  findRecord: function(id){
     return this.data.find(function(cat){ return cat.id === id })
   },
+
+  // updateRecord: function(cat){
+  //   console.log('hollllllla ' + cat)
+  // },
 
   addClick: function(cat){
     cat.clicks += 1

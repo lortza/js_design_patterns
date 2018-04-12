@@ -28,3 +28,11 @@ img.cat-pic:active {
 img.cat-pic:hover {
   transform: rotate(-1deg);
 }
+
+form {
+  text-align: left;
+}
+
+.hidden {
+  display: none;
+}
