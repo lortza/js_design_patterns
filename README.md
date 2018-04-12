@@ -11,7 +11,7 @@ Each project has its own readme file with more details
 - Data is stored in a model
 - Edit profile data via form
 
-## School attendance
+## School Attendance
 
 - Table of students with checkboxes for days attended
 - Total column to count total attendance
