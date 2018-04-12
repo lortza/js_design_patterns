@@ -27,13 +27,14 @@ function init(){
 
 // Show the cat profile
 function showCat(e){
-  let catId;
+  let domId;
   if(e.target.classList.contains('cat')){
-    catId = e.target.getAttribute('id')
+    domId = e.target.getAttribute('id')
   } else if(e.target.nodeName === 'P'){
-    catId = e.target.parentElement.getAttribute('id')
+    domId = e.target.parentElement.getAttribute('id')
   }
-  ui.buildCatProfile(catId)
+  let id = ui.parseId(domId)
+  ui.buildCatProfile(id)
 }
 
 // Update the click count
@@ -63,17 +64,18 @@ function cancelEdit(e){
   e.preventDefault()
 }
 
-// function updateRecord(e){
-//   if(e.target.getAttribute('id') === 'submit') {
-//     let domId = e.target.parentElement.parentElement.querySelector('.profile').getAttribute('id')
-//     let cat = {
-//       id: ui.parseId(domId),
-//       name: document.querySelector('input#name').value,
-//       url: document.querySelector('input#url').value,
-//       clicks: document.querySelector('input#clicks').value
-//     }
-//     model.updateRecord(cat)
-//     ui.removeForm()
-//   }
-//   e.preventDefault()
-// }
+function updateRecord(e){
+  if(e.target.getAttribute('id') === 'submit') {
+    let domId = e.target.parentElement.parentElement.querySelector('.profile').getAttribute('id')
+    let cat = {
+      id: ui.parseId(domId),
+      name: document.querySelector('input#name').value,
+      url: document.querySelector('input#url').value,
+      clicks: parseInt(document.querySelector('input#clicks').value)
+    }
+    model.updateRecord(cat)
+    ui.removeForm()
+    ui.buildCatProfile(cat.id)
+  }
+  e.preventDefault()
+}

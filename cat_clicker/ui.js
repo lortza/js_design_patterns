@@ -18,8 +18,7 @@ class UI {
     this.catList.innerHTML = output
   }
 
-  buildCatProfile(catId){
-    let id = this.parseId(catId)
+  buildCatProfile(id){
     let cat = model.findRecord(id)
 
     this.catContainer.innerHTML = `

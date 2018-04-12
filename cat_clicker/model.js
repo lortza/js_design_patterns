@@ -30,9 +30,12 @@ const model = {
     return this.data.find(function(cat){ return cat.id === id })
   },
 
-  // updateRecord: function(cat){
-  //   console.log('hollllllla ' + cat)
-  // },
+  updateRecord: function(updatedInfo){
+    let cat = this.findRecord(updatedInfo.id)
+    cat.name = updatedInfo.name
+    cat.url = updatedInfo.url
+    cat.clicks = updatedInfo.clicks
+  },
 
   addClick: function(cat){
     cat.clicks += 1
