@@ -26,6 +26,21 @@
     }
 }());
 
+class Student {
+  constructor(row){
+    this.attendance = $(row).children('td').children('input')
+  }
+
+  daysMissed(){
+    var numMissed = 0;
+    this.attendance.each( function() {
+      if ( !$(this).prop('checked') ) {
+        numMissed++;
+      }
+    });
+    return numMissed
+  }
+}
 
 /* STUDENT APPLICATION */
 $(function() {
@@ -36,21 +51,13 @@ $(function() {
     // Count a student's missed days
     function countMissing() {
         $allMissed.each(function() {
-            var studentRow = $(this).parent('tr'),
-                dayChecks = $(studentRow).children('td').children('input'),
-                numMissed = 0;
-
-            dayChecks.each(function() {
-                if (!$(this).prop('checked')) {
-                    numMissed++;
-                }
-            });
-
-            $(this).text(numMissed);
+          var studentRow = $(this).parent('tr')
+          var student = new Student(studentRow)
+          $(this).text(student.daysMissed());
         });
     }
 
-    // Check boxes, based on attendace records
+    // Set the dom checkboxes to the local storage values
     $.each(attendance, function(name, days) {
         var studentRow = $('tbody .name-col:contains("' + name + '")').parent('tr'),
             dayChecks = $(studentRow).children('.attend-col').children('input');
@@ -67,11 +74,11 @@ $(function() {
 
         studentRows.each(function() {
             var name = $(this).children('.name-col').text(),
-                $allCheckboxes = $(this).children('td').children('input');
+                $studentCheckboxes = $(this).children('td').children('input');
 
             newAttendance[name] = [];
 
-            $allCheckboxes.each(function() {
+            $studentCheckboxes.each(function() {
                 newAttendance[name].push($(this).prop('checked'));
             });
         });
