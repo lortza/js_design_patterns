@@ -1,0 +1,43 @@
+body {
+  text-align: center;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+.sidebar .card-body {
+  padding: 5px 15px;
+  display: block;
+}
+
+.sidebar .card p {
+  margin-bottom: 0;
+}
+
+.sidebar .card:hover {
+  background-color: #e9ecef;
+}
+
+img.cat-pic {
+  outline: 3px solid white;
+  outline-offset: -10px;
+  box-shadow: 13px 13px 13px rgba(0,0,0,0.25);
+  width: 300px;
+}
+
+img.cat-pic:active {
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+}
+
+img.cat-pic:hover {
+  transform: rotate(-1deg);
+}
+
+form {
+  text-align: left;
+}
+
+.hidden {
+  display: none;
+}
